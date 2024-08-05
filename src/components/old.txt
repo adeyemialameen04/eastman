@@ -1,0 +1,52 @@
+            <div className="mt-4 overflow-x-scroll">
+              <div className="flex items-center w-full">
+                <div className="bg-[#277e78] flex items-center justify-center py-2 px-5 text-xs font-bold border-r border-r-white text-[15px] text-white flex-1 whitespace-nowrap">
+                  Art No.
+                </div>
+                <div className="bg-[#277e78] flex items-center justify-center py-2 px-5 text-xs font-bold border-r border-r-white text-[15px] text-white flex-1 whitespace-nowrap">
+                  Overall Length (mm)
+                </div>
+                <div className="bg-[#277e78] flex items-center justify-center py-2 px-5 text-xs font-bold border-r border-r-white text-[15px] text-white flex-1 whitespace-nowrap">
+                  Qty / Pack (doz)
+                </div>
+                <div className="bg-[#277e78] flex items-center justify-center py-2 px-5 text-xs font-bold border-r border-r-white text-[15px] text-white flex-1 whitespace-nowrap">
+                  G.W. / N.W. (kg)
+                </div>
+                <div className="bg-[#277e78] flex items-center justify-center py-2 px-5 text-xs font-bold border-r border-r-white text-[15px] text-white flex-1 whitespace-nowrap">
+                  Measurement (cm)
+                </div>
+              </div>
+
+              {Object.entries(groupByMeasurement(item.table)).map(
+                ([measurement, items], measurementIndex) => (
+                  <div
+                    key={measurementIndex}
+                    className="border-b border-b-[#ddd]"
+                  >
+                    {items.map((tableItem, tableIndex) => (
+                      <div
+                        key={tableIndex}
+                        className="flex items-center w-full"
+                      >
+                        <div className="flex items-center justify-center py-2 px-5 text-xs border-r border-r-[#ddd] text-[15px] flex-1 whitespace-nowrap">
+                          {tableItem.artNo}
+                        </div>
+                        <div className="flex items-center justify-center py-2 px-5 text-xs border-r border-r-[#ddd] text-[15px] flex-1 whitespace-nowrap">
+                          {tableItem.size}
+                        </div>
+                        <div className="flex items-center justify-center py-2 px-5 text-xs border-r border-r-[#ddd] text-[15px] flex-1 whitespace-nowrap">
+                          {tableItem.qtyPerPack}
+                        </div>
+                        <div className="flex items-center justify-center py-2 px-5 text-xs border-r border-r-[#ddd] text-[15px] flex-1 whitespace-nowrap">
+                          {tableItem.weight}
+                        </div>
+                        <div className="flex items-center justify-center py-2 px-5 text-xs border-r border-r-[#ddd] text-[15px] flex-1 whitespace-nowrap">
+                          {tableItem.measurement}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ),
+              )}
+            </div>
+
